@@ -17,8 +17,7 @@ pipeline{
       stage('deploy to S3'){
           steps{
               echo 'Deploying...'
-              sh 'aws s3 cp public/index.html s3://<bucket-name>'
-              sh 'aws s3api put-object-acl --bucket <bucket-name> --key index.html --acl public-read'
+
           }
       }
   }
