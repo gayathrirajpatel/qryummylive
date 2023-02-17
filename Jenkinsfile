@@ -17,8 +17,8 @@ pipeline{
       stage('deploy to S3'){
           steps{
               echo 'Deploying...'
-              echo 'AWS Region : $AWS_REGION'
-              echo 'Accessing S3 bucket : ${bucket-name}'
+              sh 'printenv'
+              //sh 'Accessing S3 bucket : ${bucket-name}'
               //bat "aws s3 cp ./index.html s3://qryummylive.com"
 
             
