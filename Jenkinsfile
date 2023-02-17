@@ -24,7 +24,7 @@ pipeline{
               echo 'Accessing S3 bucket : qryummydemo'
               bat "aws s3 cp ./index.html s3://qryummydemo"
             
-              bat "aws s3 cp ./Restaurant-1/about.html s3://qryummydemo"
+              bat "aws s3 cp ./Restaurant-1/about.html s3://qryummydemo/Restaurant-1"
               //bat "aws s3 cp C:/Users/gayathri/Downloads/qryummylive-main/index.html s3://qryummydemo"
               //s3Upload(file:'index.html', bucket:'qryummydemo', path:'./index.html')
 
