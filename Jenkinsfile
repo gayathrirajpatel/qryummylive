@@ -21,7 +21,7 @@ pipeline{
               bat "aws configure set region $AWS_REGION"
               bat "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
               bat "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
-              bat 'Accessing S3 bucket : ${bucket-name}'
+              echo 'Accessing S3 bucket : $bucket-name'
               bat "aws s3 cp ./index.html s3://qryummydemo"
               //bat "aws s3 cp C:/Users/gayathri/Downloads/qryummylive-main/index.html s3://qryummydemo"
               //s3Upload(file:'index.html', bucket:'qryummydemo', path:'./index.html')
