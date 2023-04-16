@@ -32,7 +32,8 @@ pipeline{
               //bat "aws s3 cp C:/Users/gayathri/Downloads/qryummylive-main/index.html s3://qryummydemo"
               //s3Upload(file:'index.html', bucket:'qryummydemo', path:'./index.html')
 
-            
+               slackSend(channel: "team3", message: "Slack Test-1", sendAsText: true)
+
 
           }
       }
@@ -41,6 +42,7 @@ pipeline{
           
   
       post{
+        
          always {
             emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
 
@@ -51,6 +53,7 @@ pipeline{
 
 
         }
+
         failure{
               echo 'failure'
         }
