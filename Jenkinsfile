@@ -43,7 +43,6 @@ pipeline{
       post{
          always {
             emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-            slackSend "Build Started -  $BUILD_NUMBER "
 
         }
         success{
