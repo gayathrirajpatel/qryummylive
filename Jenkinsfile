@@ -7,23 +7,23 @@ pipeline{
               echo 'Building...'
           }
       }    
-//       stage('Test'){
-//           steps{
-//               echo 'Testing...'
-//           }
-//       } 
-     stage('Test') {
-            steps {
-                // Run your tests here
-                junit 'path/to/test/results/*.xml' // This will generate JUnit test result reports
-            }
-        }
-        stage('Publish Test Results') {
-            steps {
-                junit 'path/to/test/results/*.xml' // This will publish the JUnit test results in the pipeline
-            }
+      stage('Test'){
+          steps{
+              echo 'Testing...'
+          }
+      } 
+//      stage('Test') {
+//             steps {
+//                 // Run your tests here
+//                 junit 'path/to/test/results/*.xml' // This will generate JUnit test result reports
+//             }
+//         }
+//         stage('Publish Test Results') {
+//             steps {
+//                 junit 'path/to/test/results/*.xml' // This will publish the JUnit test results in the pipeline
+//             }
       
-        }
+//         }
       stage('deploy to S3'){
           steps{
               echo 'Deploying...'
