@@ -5,11 +5,15 @@ pipeline{
       stage('Build'){
           steps{
               echo 'Building...'
+              sh './gradlew build'
+            
           }
       }    
       stage('Test'){
           steps{
               echo 'Testing...'
+               sh './gradlew check'
+
           }
       } 
 //      stage('Test') {
@@ -57,6 +61,10 @@ pipeline{
 //          always {
 
 //         }
+       always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
         success{
               echo 'success'
 //                           emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
