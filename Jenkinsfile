@@ -7,11 +7,21 @@ pipeline{
               echo 'Building...'
           }
       }    
-      stage('Test'){
-          steps{
-              echo 'Testing...'
-          }
-      }    
+//       stage('Test'){
+//           steps{
+//               echo 'Testing...'
+//           }
+//       } 
+     stage('Test') {
+            steps {
+                // Run your tests here
+                junit 'path/to/test/results/*.xml' // This will generate JUnit test result reports
+            }
+        }
+        stage('Publish Test Results') {
+            steps {
+                junit 'path/to/test/results/*.xml' // This will publish the JUnit test results in the pipeline
+            }
       
     
       stage('deploy to S3'){
@@ -33,7 +43,7 @@ pipeline{
               //s3Upload(file:'index.html', bucket:'qryummydemo', path:'./index.html')
             emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
 
-               slackSend(username : "Team3_JenkinsAdmin" , color: "good" , channel: "team3", message: "Build Successful:  ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", sendAsText: true)
+//                slackSend(username : "Team3_JenkinsAdmin" , color: "good" , channel: "team3", message: "Build Successful:  ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", sendAsText: true)
 
 
           }
