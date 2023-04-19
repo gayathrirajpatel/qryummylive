@@ -16,6 +16,12 @@ pipeline{
 //               bat 'gradlew.bat check'
 
           }
+        post{
+                          always {
+//                          archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit allowEmptyResults: true,testResults: 'target/surefire-reports/*.xml'
+        }
+        }
   
       } 
 //      stage('Test') {
@@ -59,10 +65,7 @@ pipeline{
           
   
       post{
-                        always {
-                         archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit allowEmptyResults: true,testResults: 'build/reports/**/*.xml'
-        }
+      
 //          always {
 
 //         }
