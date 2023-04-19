@@ -66,6 +66,7 @@ pipeline{
         success{
               echo 'success'
                 always {
+                         archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit allowEmptyResults: true,testResults: 'build/reports/**/*.xml'
         }
 //                           emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
