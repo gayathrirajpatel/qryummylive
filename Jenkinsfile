@@ -23,7 +23,7 @@ pipeline{
                 junit 'path/to/test/results/*.xml' // This will publish the JUnit test results in the pipeline
             }
       
-    
+        }
       stage('deploy to S3'){
           steps{
               echo 'Deploying...'
