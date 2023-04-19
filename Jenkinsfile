@@ -5,14 +5,15 @@ pipeline{
       stage('Build'){
           steps{
               echo 'Building...'
-              bat '.\gradlew build' 
+              bat './gradlew build'
+ 
             
           }
       }    
       stage('Test'){
           steps{
               echo 'Testing...'
-               bat '.\gradlew check'
+              bat './gradlew check'
 
           }
       } 
