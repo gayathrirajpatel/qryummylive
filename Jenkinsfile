@@ -55,7 +55,7 @@ pipeline{
               //s3Upload(file:'index.html', bucket:'qryummydemo', path:'./index.html')
             emailext body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
 
-//                slackSend(username : "Team3_JenkinsAdmin" , color: "good" , channel: "team3", message: "Build Successful:  ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", sendAsText: true)
+               slackSend(username : "Team3_JenkinsAdmin" , color: "good" , channel: "team3", message: "Build Successful:  ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", sendAsText: true)
 
 
           }
