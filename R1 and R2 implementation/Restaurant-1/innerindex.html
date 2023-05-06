@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Yummy</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+
+  <!-- custom css file link  -->
+  <style>
+   
+.coupon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin-top: 0;  
+  margin-right: 20px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.coupon-container:last-of-type {
+  margin-right: 0;
+}
+
+.coupon-container .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.coupon-container img {
+  width: 130px;
+  height: 100px;
+}
+
+.coupon-container h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.coupon-container p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.coupon-container .discount {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.coupon-container .code {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+.coupon-container .code:hover {
+  background-color: #f1f1f1;
+}
+
+.container {
+  display: flex;
+ 
+
+}
+
+.box {
+  width: 33%;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+
+/* .coupon-container img.gift {
+  width: 70px;
+  height: 70px;
+} */
+
+
+
+.coupon-container.first-time-user {
+  /* background-color: #ffe6e6; */
+}
+
+.coupon-container.member-deal {
+  background-color: #e6f7ff;
+}
+
+.coupon-container.occasional-deal {
+  background-color: #f2e6ff;
+  
+}
+
+</style>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+  <!-- header section starts     -->
+
+  <section class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-utensils"></i> QRYummy! </a>
+
+    <nav class="navbar">
+      <a  href="innerindex.html">Home</a>
+      <a  href="about.html">About</a>
+      <a  href="menu.html">Menu</a>
+      <a  href="order.html">Order</a>
+      
+      <a  href="profile.html">Profile</a>
+      <button onclick="logout()" style="font-size: 19px; margin:2rem; background-color: white;color:var(--light-grey);">Logout</button>
+
+
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+
+  </section>
+
+  <!-- header section ends    -->
+
+  <!-- home section starts  -->
+  <section class="home" id="home"> 
+
+    <div class="swiper home-slider">
+
+      <div class="swiper-wrapper">
+       
+        
+        <div class="swiper-slide slide" style="background: url(home-slide-1.jpg) no-repeat;">
+          <div class="container">
+            <div class="coupon-container">
+              <div class="close">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <img class="gift" src="first.png" alt="" />
+              <h2>First Time Users!!</h2>
+              <p>You can get</p>
+              <div class="discount">40% off</div>
+              <!-- <p>Here is your code</p>
+              <div class="code">LBSAVE75</div> -->
+            </div>
+            <div class="coupon-container member-deal">
+              <div class="close">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <img class="gift" src="mem.png" alt="" />
+              <h2>Member Deal</h2>
+              <p>You can get</p>
+              <div class="discount">5% off</div>
+              <!-- <p>Here is your code</p> -->
+              <!-- <div class="code">MEMBERSAVE50</div> -->
+            </div>
+            <div class="coupon-container occasional-deal">
+              <div class="close">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <img class="gift" src="occ.png" alt="" />
+              <h2>Occasional Deal</h2>
+              <p>You can get</p>
+              <div class="discount">15% off</div>
+              <p>Here is your code</p>
+              <div class="code">OCCASIONALSAVE20</div>
+            </div>
+          </div>
+    
+        
+          <div class="content">
+            
+            
+            <h3>Hello You!</h3>
+            <span>WELCOME</span>
+
+            <a href="menu.html" class="btn" >get started</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background: url(home-slide-2.jpg) no-repeat;">
+          <div class="content">
+            <span>outstanding food</span>
+            <h3>morning moment</h3>
+            <a href="#" class="btn">get started</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide slide" style="background: url(home-slide-3.jpg) no-repeat;">
+          <div class="content">
+            <span>outstanding food</span>
+            <h3>authentic kitchen</h3>
+            <a href="#" class="btn">get started</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+    </div>
+
+  </section>
+
+  <!-- home section ends -->
+
+  
+ 
+  <!-- footer section starts  -->
+
+  <section class="footer">
+
+    <div class="icons-container">
+
+      <div class="icons">
+        <i class="fas fa-clock"></i>
+        <h3>opening hours</h3>
+        <p>07:00am to 10:00pm</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-phone"></i>
+        <h3>phone</h3>
+        <p>+123-456-7890</p>
+        <p>+111-222-3333</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-envelope"></i>
+        <h3>email</h3>
+        <p>shaikhanas@gmail.com</p>
+        <p>anasbhai@gmail.com</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-map"></i>
+        <h3>address</h3>
+        <p>mumbai, india - 400104</p>
+      </div>
+
+    </div>
+
+    <div class="share">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-linkedin"></a>
+    </div>
+
+    <div class="credit"> created by <span>Team-3 Fall 2022</span> | all rights reserved! </div>
+
+  </section>
+
+  <!-- footer section ends  -->
+
+
+<script>const getDiscountBtn = document.querySelector(".get-discount-btn");
+  const couponContainer = document.querySelector(".coupon-container");
+  const closeBtn = document.querySelector(".coupon-container .close");
+  
+  // getDiscountBtn.addEventListener("click", () => {
+    couponContainer.classList.add("active");
+  // });
+  
+  closeBtn.addEventListener("click", () => {
+    couponContainer.classList.remove("active");
+  });
+  </script>
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+  <!-- custom js file link  -->
+  <script src="script.js"></script>
+
+   <script>
+    lightGallery(document.querySelector('.gallery .gallery-container'));
+  </script>
+  <script>
+    var x = document.getElementById('login');
+    var y = document.getElementById('register');
+    var z = document.getElementById('button');
+    function register() {
+      x.style.left = '-400px';
+      y.style.left = '50px';
+      z.style.left = '110px';
+    }
+    function login() {
+      x.style.left = '50px';
+      y.style.left = '450px';
+      z.style.left = '0px';
+    }
+  </script>
+  <script>
+    var modal = document.getElementById('#login-form');
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+
+    }
+  </script> 
+
+
+</body>
+
+</html>

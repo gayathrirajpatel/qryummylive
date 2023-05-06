@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Yummy</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
+  <!-- custom css file link  -->
+   <!-- <script src="store.js" async></script> -->
+
+  <link rel="stylesheet" href="style.css">
+
+
+
+<style>
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+     </style>
+  
+  
+  </head>
+  
+  <body>
+<div id="popup" class="popup">
+    <div  class="popup-content" style="  background-color: lightgreen;
+    ">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2 style="color: purple;">Do you have any Promo Code of occasional deal? Please Enter below.</h2>
+      <input type="text" id="promo-code-input" placeholder="Enter Promo Code">
+      <button onclick="applyPromoCode()">Apply</button>
+    </div>
+  </div>
+
+<script>
+            document.getElementById("popup").style.display = "block";
+
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// Apply the promo code and move to payment page
+function applyPromoCode() {
+  let promo = document.getElementById("promo-code-input")
+  console.log("hbsdchvsdljv")
+   // function(e){
+   //    e.preventDefault()
+   // console.log("printing price") //printing price
+   // // window.location= Restaurant-1/order.html;
+    
+   promo.addEventListener('submit', function(e){
+      e.preventDefault()
+
+   let customerName=getCookie("userid")//document.getElementById('CustomerName').value //from cookie
+   let totalprice=document.getElementsByClassName("cart-total-price")[0].innerText;
+   let price = totalPrice.split("$")[1];
+   const promoCode=document.getElementById("promo-code-input").value;
+   // console.log (FoodName,Cuisine.substring(1),Price);
+
+    fetch(' https://6lryqkzhae.execute-api.us-east-1.amazonaws.com/test/discountCalc', {
+      method: 'POST',
+      body: JSON.stringify({
+         
+
+         price:price,
+    customerName:customerName,
+    promoCode: promoCode
+
+         
+      }),
+      headers: {
+         'Content-type': 'application/json',
+      }
+      })
+      .then(function(response){ 
+         return response.json()})
+         .then(function(data){
+            console.log(data)
+            // Set the promo code as a cookie
+//   document.cookie = `promoCode=${promoCode}; max-age=86400`; // Expires after 1 day
+
+  // Close the popup
+  closePopup();
+  
+  // Move to payment page
+  window.location.href = "payment.html";
+         }).catch(error => console.error('Error:', error));
+  
+}
+
+        </script>
+
+</body>
+</html>
