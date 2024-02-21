@@ -1,3 +1,5 @@
 # qryummy
 
-This is a restaurant app
+Hi!
+
+This is a restaurant app.
